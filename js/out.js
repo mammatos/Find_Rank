@@ -12627,7 +12627,7 @@ var Button = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'button',
-                { type: 'button', className: 'btn waves-effect waves-light' },
+                { type: 'button', className: 'topBtn btn waves-effect waves-light' },
                 this.state.text
             );
         }

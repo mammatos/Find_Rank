@@ -1,3 +1,12 @@
+button.topBtn {
+  background-color: #359ED6; }
+
+button.topBtn:hover {
+  background-color: #4cacdf; }
+
+button.topBtn:focus {
+  background-color: #E01A27; }
+
 .wrapperApp {
   display: flex;
   justify-content: space-around; }

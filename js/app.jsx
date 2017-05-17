@@ -22,7 +22,7 @@ class Button extends React.Component {
         }
     }
     render() {
-        return <button type="button"  className="btn waves-effect waves-light">{this.state.text}</button>
+        return <button type="button"  className="topBtn btn waves-effect waves-light">{this.state.text}</button>
     }
 }
 
