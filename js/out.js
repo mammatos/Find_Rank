@@ -12642,7 +12642,9 @@ var Button = function (_React$Component) {
     }, {
         key: 'onClick',
         value: function onClick(event) {
-            console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
+            // console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
+            // console.log("this.props.callback", this.props.mojafunkcja);
+            this.props.mojafunkcja();
         }
     }]);
 
@@ -12661,6 +12663,8 @@ var Menu = function (_React$Component2) {
     _createClass(Menu, [{
         key: 'render',
         value: function render() {
+            var _this4 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -12669,9 +12673,24 @@ var Menu = function (_React$Component2) {
                     null,
                     'Menu'
                 ),
-                _react2.default.createElement(Button, { text: 'TOP 10' }),
-                _react2.default.createElement(Button, { text: 'TOP 100' })
+                _react2.default.createElement(Button, {
+                    text: 'TOP 10',
+                    mojafunkcja: function mojafunkcja() {
+                        return _this4.handleTop10ButtonClicked();
+                    }
+                }),
+                _react2.default.createElement(Button, {
+                    text: 'TOP 100',
+                    callback: function callback(button) {
+                        return _this4.onClick(button);
+                    }
+                })
             );
+        }
+    }, {
+        key: 'handleTop10ButtonClicked',
+        value: function handleTop10ButtonClicked() {
+            this.props.callback10();
         }
     }]);
 
@@ -12689,10 +12708,10 @@ var RankVerseHeader = function (_React$Component3) {
     function RankVerseHeader(props) {
         _classCallCheck(this, RankVerseHeader);
 
-        var _this4 = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
+        var _this5 = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
 
-        _this4.state = {};
-        return _this4;
+        _this5.state = {};
+        return _this5;
     }
 
     _createClass(RankVerseHeader, [{
@@ -12777,10 +12796,7 @@ var RankVerse = function (_React$Component4) {
     function RankVerse(props) {
         _classCallCheck(this, RankVerse);
 
-        var _this5 = _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
-
-        _this5.state = {};
-        return _this5;
+        return _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
     }
 
     _createClass(RankVerse, [{
@@ -12795,7 +12811,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         null,
-                        'Lp.'
+                        this.props.lp
                     )
                 ),
                 _react2.default.createElement(
@@ -12804,7 +12820,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         null,
-                        'Nazwa kana\u0142u'
+                        this.props.channelTitle
                     )
                 ),
                 _react2.default.createElement(
@@ -12880,10 +12896,9 @@ var Data = function (_React$Component5) {
                     'Statystyki'
                 ),
                 _react2.default.createElement(RankVerseHeader, null),
-                _react2.default.createElement(RankVerse, null),
-                _react2.default.createElement(RankVerse, null),
-                _react2.default.createElement(RankVerse, null),
-                _react2.default.createElement(RankVerse, null)
+                this.props.items.map(function (item, index) {
+                    return _react2.default.createElement(RankVerse, { lp: index + 1, channelTitle: item.snippet.channelTitle, key: item.id });
+                })
             );
         }
     }]);
@@ -12894,21 +12909,68 @@ var Data = function (_React$Component5) {
 var App = function (_React$Component6) {
     _inherits(App, _React$Component6);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this8 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this8.state = {
+            items: []
+        };
+        return _this8;
     }
 
     _createClass(App, [{
         key: 'render',
         value: function render() {
+            var _this9 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'wrapperApp' },
-                _react2.default.createElement(Menu, null),
-                _react2.default.createElement(Data, null)
+                _react2.default.createElement(Menu, {
+                    callback10: function callback10() {
+                        return _this9.runApiTop10();
+                    }
+                }),
+                _react2.default.createElement(Data, { items: this.state.items })
             );
+        }
+    }, {
+        key: 'runApiTop10',
+        value: function runApiTop10() {
+            var _this10 = this;
+
+            // console.log("runApiTop10");
+            $.ajax({
+                url: 'https://www.googleapis.com/youtube/v3/videos',
+                data: {
+                    key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+                    part: 'contentDetails, statistics, snippet',
+                    chart: 'mostPopular',
+                    // videoCategoryId: '10',
+                    maxResults: '10'
+                },
+                method: 'GET'
+                // url: 'https://www.googleapis.com/youtube/v3/search',
+                // data:{
+                //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+                //     part: 'snippet',
+                //     // forDeveloper: false,
+                //     q: 'cats',
+                //     // chanelType: 'any',
+                //     // videoCategoryId: '10',
+                //     order: 'viewCount',
+                //     maxResults: '10'
+                // }, 
+                // method: 'GET'
+
+            }).done(function (response) {
+                console.log(response);
+                _this10.setState({
+                    items: response.items
+                });
+            });
         }
     }]);
 
