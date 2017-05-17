@@ -1,0 +1,23 @@
+.wrapperApp {
+  display: flex;
+  justify-content: space-around; }
+
+.rankVerseHeader {
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black; }
+
+.rankVerseHeader div {
+  padding: 0.5rem;
+  border: 1px dashed red; }
+
+.rankVerse {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  padding: 0.5rem; }
+
+.rankVerse div {
+  border: 1px dashed green; }
