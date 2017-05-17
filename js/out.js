@@ -12625,11 +12625,24 @@ var Button = function (_React$Component) {
     _createClass(Button, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'button',
-                { type: 'button', className: 'topBtn btn waves-effect waves-light' },
+                {
+                    type: 'button',
+                    className: 'topBtn btn waves-effect waves-light',
+                    onClick: function onClick(event) {
+                        return _this2.onClick(event);
+                    }
+                },
                 this.state.text
             );
+        }
+    }, {
+        key: 'onClick',
+        value: function onClick(event) {
+            console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
         }
     }]);
 
@@ -12676,10 +12689,10 @@ var RankVerseHeader = function (_React$Component3) {
     function RankVerseHeader(props) {
         _classCallCheck(this, RankVerseHeader);
 
-        var _this3 = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
+        var _this4 = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
 
-        _this3.state = {};
-        return _this3;
+        _this4.state = {};
+        return _this4;
     }
 
     _createClass(RankVerseHeader, [{
@@ -12764,10 +12777,10 @@ var RankVerse = function (_React$Component4) {
     function RankVerse(props) {
         _classCallCheck(this, RankVerse);
 
-        var _this4 = _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
+        var _this5 = _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
 
-        _this4.state = {};
-        return _this4;
+        _this5.state = {};
+        return _this5;
     }
 
     _createClass(RankVerse, [{

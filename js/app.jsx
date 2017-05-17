@@ -15,14 +15,27 @@ hashHistory
 
 
 class Button extends React.Component {
+
     constructor(props){
         super(props);
         this.state = {
             text: this.props.text
         }
     }
+
     render() {
-        return <button type="button"  className="topBtn btn waves-effect waves-light">{this.state.text}</button>
+        return <button 
+                    type="button"  
+                    className="topBtn btn waves-effect waves-light"
+                    onClick={event => this.onClick(event)}
+                    >
+                    {this.state.text}
+                </button>
+    }
+
+    onClick(event){
+        console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
+
     }
 }
 
