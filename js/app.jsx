@@ -50,14 +50,18 @@ class Menu extends React.Component {
                 mojafunkcja={() => this.handleTop10ButtonClicked()}
             />
             <Button 
-                text="TOP 100"
-                callback={button => this.onClick(button)}
+                text="TOP 50"
+                mojafunkcja={() => this.handleTop50ButtonClicked()}
             />
         </div>
     }
 
     handleTop10ButtonClicked() {
         this.props.callback10();
+    }
+
+    handleTop50ButtonClicked() {
+        this.props.callback50();
     }
 }
 
@@ -95,7 +99,7 @@ class RankVerseHeader extends React.Component {
                 <p className="rankHeaderCell"><i className="thumb_down small">down</i></p>
             </div>
             <div>
-                <p className="rankHeaderCell">Wyświetlenia</p>
+                <p className="rankHeaderCell">Zobacz</p>
             </div>
         </div>
     }
@@ -127,7 +131,7 @@ class RankVerse extends React.Component {
                 <p className="rankCell">{this.props.dislikes}</p>
             </div>
             <div>
-                <p className="rankCell">Wyświetlenia</p>
+                <p className="rankCell"><a href="https://www.youtube.com">Play</a></p>
             </div>
         </div>
     }
@@ -165,6 +169,7 @@ class App extends React.Component {
         return <div className="wrapperApp">
             <Menu
                 callback10={() => this.runApiTop10()}
+                callback50={() => this.runApiTop50()}
             />
             <Data items={this.state.items}/>
         </div>
@@ -180,6 +185,40 @@ class App extends React.Component {
                 chart: 'mostPopular',
                 // videoCategoryId: '10',
                 maxResults: '10'
+            }, 
+            method: 'GET'
+            // url: 'https://www.googleapis.com/youtube/v3/search',
+            // data:{
+            //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+            //     part: 'snippet',
+            //     // forDeveloper: false,
+            //     q: 'cats',
+            //     // chanelType: 'any',
+            //     // videoCategoryId: '10',
+            //     order: 'viewCount',
+            //     maxResults: '10'
+            // }, 
+            // method: 'GET'
+
+        })
+        .done((response) => {
+            console.log(response);
+            this.setState({
+                items: response.items
+            });
+        });
+    }
+
+    runApiTop50(){
+        // console.log("runApiTop10");
+        $.ajax({
+            url: 'https://www.googleapis.com/youtube/v3/videos',
+            data:{
+                key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+                part: 'contentDetails, statistics, snippet',
+                chart: 'mostPopular',
+                // videoCategoryId: '10',
+                maxResults: '50'
             }, 
             method: 'GET'
             // url: 'https://www.googleapis.com/youtube/v3/search',

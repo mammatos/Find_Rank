@@ -12680,9 +12680,9 @@ var Menu = function (_React$Component2) {
                     }
                 }),
                 _react2.default.createElement(Button, {
-                    text: 'TOP 100',
-                    callback: function callback(button) {
-                        return _this4.onClick(button);
+                    text: 'TOP 50',
+                    mojafunkcja: function mojafunkcja() {
+                        return _this4.handleTop50ButtonClicked();
                     }
                 })
             );
@@ -12691,6 +12691,11 @@ var Menu = function (_React$Component2) {
         key: 'handleTop10ButtonClicked',
         value: function handleTop10ButtonClicked() {
             this.props.callback10();
+        }
+    }, {
+        key: 'handleTop50ButtonClicked',
+        value: function handleTop50ButtonClicked() {
+            this.props.callback50();
         }
     }]);
 
@@ -12788,7 +12793,7 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        'Wy\u015Bwietlenia'
+                        'Zobacz'
                     )
                 )
             );
@@ -12873,7 +12878,11 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankCell' },
-                        'Wy\u015Bwietlenia'
+                        _react2.default.createElement(
+                            'a',
+                            { href: 'https://www.youtube.com' },
+                            'Play'
+                        )
                     )
                 )
             );
@@ -12946,6 +12955,9 @@ var App = function (_React$Component6) {
                 _react2.default.createElement(Menu, {
                     callback10: function callback10() {
                         return _this9.runApiTop10();
+                    },
+                    callback50: function callback50() {
+                        return _this9.runApiTop50();
                     }
                 }),
                 _react2.default.createElement(Data, { items: this.state.items })
@@ -12983,6 +12995,42 @@ var App = function (_React$Component6) {
             }).done(function (response) {
                 console.log(response);
                 _this10.setState({
+                    items: response.items
+                });
+            });
+        }
+    }, {
+        key: 'runApiTop50',
+        value: function runApiTop50() {
+            var _this11 = this;
+
+            // console.log("runApiTop10");
+            $.ajax({
+                url: 'https://www.googleapis.com/youtube/v3/videos',
+                data: {
+                    key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+                    part: 'contentDetails, statistics, snippet',
+                    chart: 'mostPopular',
+                    // videoCategoryId: '10',
+                    maxResults: '50'
+                },
+                method: 'GET'
+                // url: 'https://www.googleapis.com/youtube/v3/search',
+                // data:{
+                //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
+                //     part: 'snippet',
+                //     // forDeveloper: false,
+                //     q: 'cats',
+                //     // chanelType: 'any',
+                //     // videoCategoryId: '10',
+                //     order: 'viewCount',
+                //     maxResults: '10'
+                // }, 
+                // method: 'GET'
+
+            }).done(function (response) {
+                console.log(response);
+                _this11.setState({
                     items: response.items
                 });
             });
