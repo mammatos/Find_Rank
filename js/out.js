@@ -12871,9 +12871,9 @@ var RankVerse = function (_React$Component4) {
                         'p',
                         { className: 'rankCell' },
                         _react2.default.createElement(
-                            'a',
-                            { href: "http://youtube.com/embed/" + this.props.videoId, target: '_blank' },
-                            _react2.default.createElement('i', { className: 'play waves-effect waves-light fa fa-play-circle medium', 'aria-hidden': 'true' })
+                            'button',
+                            { className: 'waves-effect waves-light' },
+                            _react2.default.createElement('i', { className: 'play fa fa-play-circle medium', 'aria-hidden': 'true' })
                         )
                     )
                 )

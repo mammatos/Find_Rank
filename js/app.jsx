@@ -132,9 +132,12 @@ class RankVerse extends React.Component {
             </div>
             <div>
                 <p className="rankCell">
-                    <a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">
+                    <button className="waves-effect waves-light">
+                        <i className="play fa fa-play-circle medium" aria-hidden="true"></i>
+                    </button>
+                    {/*<a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">
                         <i className="play waves-effect waves-light fa fa-play-circle medium" aria-hidden="true"></i>
-                    </a>
+                    </a>*/}
                 </p>
             </div>
         </div>
