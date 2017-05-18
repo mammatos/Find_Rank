@@ -12880,7 +12880,7 @@ var RankVerse = function (_React$Component4) {
                         { className: 'rankCell' },
                         _react2.default.createElement(
                             'a',
-                            { href: 'https://www.youtube.com' },
+                            { href: "http://youtube.com/embed/" + this.props.videoId, target: '_blank' },
                             'Play'
                         )
                     )
@@ -12912,6 +12912,11 @@ var Data = function (_React$Component5) {
                     null,
                     'Statystyki'
                 ),
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    this.props.label
+                ),
                 _react2.default.createElement(RankVerseHeader, null),
                 this.props.items.map(function (item, index) {
                     return _react2.default.createElement(RankVerse, {
@@ -12921,7 +12926,9 @@ var Data = function (_React$Component5) {
                         views: item.statistics.viewCount,
                         likes: item.statistics.likeCount,
                         dislikes: item.statistics.dislikeCount,
-                        key: item.id });
+                        videoId: item.id,
+                        key: item.id
+                    });
                 })
             );
         }
@@ -12930,21 +12937,22 @@ var Data = function (_React$Component5) {
     return Data;
 }(_react2.default.Component);
 
-var App = function (_React$Component6) {
-    _inherits(App, _React$Component6);
+var Container = function (_React$Component6) {
+    _inherits(Container, _React$Component6);
 
-    function App(props) {
-        _classCallCheck(this, App);
+    function Container(props) {
+        _classCallCheck(this, Container);
 
-        var _this8 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this8 = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
 
         _this8.state = {
-            items: []
+            items: [],
+            label: ""
         };
         return _this8;
     }
 
-    _createClass(App, [{
+    _createClass(Container, [{
         key: 'render',
         value: function render() {
             var _this9 = this;
@@ -12960,7 +12968,10 @@ var App = function (_React$Component6) {
                         return _this9.runApiTop50();
                     }
                 }),
-                _react2.default.createElement(Data, { items: this.state.items })
+                _react2.default.createElement(Data, {
+                    items: this.state.items,
+                    label: this.state.label
+                })
             );
         }
     }, {
@@ -12968,34 +12979,20 @@ var App = function (_React$Component6) {
         value: function runApiTop10() {
             var _this10 = this;
 
-            // console.log("runApiTop10");
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
                 data: {
                     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
                     part: 'contentDetails, statistics, snippet',
                     chart: 'mostPopular',
-                    // videoCategoryId: '10',
                     maxResults: '10'
                 },
                 method: 'GET'
-                // url: 'https://www.googleapis.com/youtube/v3/search',
-                // data:{
-                //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
-                //     part: 'snippet',
-                //     // forDeveloper: false,
-                //     q: 'cats',
-                //     // chanelType: 'any',
-                //     // videoCategoryId: '10',
-                //     order: 'viewCount',
-                //     maxResults: '10'
-                // }, 
-                // method: 'GET'
-
             }).done(function (response) {
                 console.log(response);
                 _this10.setState({
-                    items: response.items
+                    items: response.items,
+                    label: "top 10"
                 });
             });
         }
@@ -13004,36 +13001,41 @@ var App = function (_React$Component6) {
         value: function runApiTop50() {
             var _this11 = this;
 
-            // console.log("runApiTop10");
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
                 data: {
                     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
                     part: 'contentDetails, statistics, snippet',
                     chart: 'mostPopular',
-                    // videoCategoryId: '10',
                     maxResults: '50'
                 },
                 method: 'GET'
-                // url: 'https://www.googleapis.com/youtube/v3/search',
-                // data:{
-                //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
-                //     part: 'snippet',
-                //     // forDeveloper: false,
-                //     q: 'cats',
-                //     // chanelType: 'any',
-                //     // videoCategoryId: '10',
-                //     order: 'viewCount',
-                //     maxResults: '10'
-                // }, 
-                // method: 'GET'
-
             }).done(function (response) {
                 console.log(response);
                 _this11.setState({
-                    items: response.items
+                    items: response.items,
+                    label: "top 50"
                 });
             });
+        }
+    }]);
+
+    return Container;
+}(_react2.default.Component);
+
+var App = function (_React$Component7) {
+    _inherits(App, _React$Component7);
+
+    function App() {
+        _classCallCheck(this, App);
+
+        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    }
+
+    _createClass(App, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(Container, null);
         }
     }]);
 

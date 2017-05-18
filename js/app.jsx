@@ -131,7 +131,7 @@ class RankVerse extends React.Component {
                 <p className="rankCell">{this.props.dislikes}</p>
             </div>
             <div>
-                <p className="rankCell"><a href="https://www.youtube.com">Play</a></p>
+                <p className="rankCell"><a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">Play</a></p>
             </div>
         </div>
     }
@@ -141,6 +141,7 @@ class Data extends React.Component {
     render() {
         return <div>
             <h1>Statystyki</h1>
+            <h2>{this.props.label}</h2>
             <RankVerseHeader/>
             {this.props.items.map((item, index) => {
                 return <RankVerse 
@@ -150,18 +151,21 @@ class Data extends React.Component {
                             views={item.statistics.viewCount}
                             likes={item.statistics.likeCount}
                             dislikes={item.statistics.dislikeCount}
-                            key={item.id}/>
+                            videoId={item.id}
+                            key={item.id}
+                        />
             })}
         </div>
     }
 }
 
-class App extends React.Component {
+class Container extends React.Component {
 
     constructor(props){
         super(props);
         this.state ={
-            items: []
+            items: [],
+            label: ""
         };
     }
 
@@ -171,77 +175,61 @@ class App extends React.Component {
                 callback10={() => this.runApiTop10()}
                 callback50={() => this.runApiTop50()}
             />
-            <Data items={this.state.items}/>
+            <Data 
+                items={this.state.items}
+                label={this.state.label}
+            />
         </div>
     }
 
     runApiTop10(){
-        // console.log("runApiTop10");
         $.ajax({
             url: 'https://www.googleapis.com/youtube/v3/videos',
             data:{
                 key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
                 part: 'contentDetails, statistics, snippet',
                 chart: 'mostPopular',
-                // videoCategoryId: '10',
                 maxResults: '10'
             }, 
             method: 'GET'
-            // url: 'https://www.googleapis.com/youtube/v3/search',
-            // data:{
-            //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
-            //     part: 'snippet',
-            //     // forDeveloper: false,
-            //     q: 'cats',
-            //     // chanelType: 'any',
-            //     // videoCategoryId: '10',
-            //     order: 'viewCount',
-            //     maxResults: '10'
-            // }, 
-            // method: 'GET'
-
         })
         .done((response) => {
             console.log(response);
             this.setState({
-                items: response.items
+                items: response.items,
+                label: "top 10"
             });
         });
     }
 
     runApiTop50(){
-        // console.log("runApiTop10");
         $.ajax({
             url: 'https://www.googleapis.com/youtube/v3/videos',
             data:{
                 key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
                 part: 'contentDetails, statistics, snippet',
                 chart: 'mostPopular',
-                // videoCategoryId: '10',
                 maxResults: '50'
             }, 
             method: 'GET'
-            // url: 'https://www.googleapis.com/youtube/v3/search',
-            // data:{
-            //     key: 'AIzaSyD73j-Kz8sdfXHx_br5UhXPxP0eNpjw-WQ',
-            //     part: 'snippet',
-            //     // forDeveloper: false,
-            //     q: 'cats',
-            //     // chanelType: 'any',
-            //     // videoCategoryId: '10',
-            //     order: 'viewCount',
-            //     maxResults: '10'
-            // }, 
-            // method: 'GET'
-
         })
         .done((response) => {
             console.log(response);
             this.setState({
-                items: response.items
+                items: response.items,
+                label: "top 50",
             });
         });
     }
+
+}
+
+class App extends React.Component {
+
+    render() {
+        return <Container/>
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -250,4 +238,5 @@ document.addEventListener('DOMContentLoaded', function(){
         <App/>,
         document.getElementById('app')
     );
+
 });
