@@ -77,25 +77,25 @@ class RankVerseHeader extends React.Component {
     render() {
         return <div className="rankVerseHeader">
             <div>
-                <p>Lp.</p>
+                <p className="rankHeaderNumber">Lp.</p>
             </div>
             <div>
-                <p>Nazwa kanału</p>
+                <p className="rankHeaderCell">Nazwa kanału</p>
             </div>
             <div>
-                <p>Subskrypcje</p>
+                <p className="rankHeaderCell">Subskrypcje</p>
             </div>
             <div>
-                <p>Przyrost 24h</p>
+                <p className="rankHeaderCell">Przyrost 24h</p>
             </div>
             <div>
-                <p>Przyrost 7dni</p>
+                <p className="rankHeaderCell">Przyrost 7dni</p>
             </div>
             <div>
-                <p>Przyrost miesiąc</p>
+                <p className="rankHeaderCell">Przyrost miesiąc</p>
             </div>
             <div>
-                <p>Wyświetlenia</p>
+                <p className="rankHeaderCell">Wyświetlenia</p>
             </div>
         </div>
     }
@@ -109,25 +109,25 @@ class RankVerse extends React.Component {
     render() {
         return <div className="rankVerse">
             <div>
-                <p>{this.props.lp}</p>
+                <p className="numberCell">{this.props.lp}</p>
             </div>
             <div>
-                <p>{this.props.channelTitle}</p>
+                <p className="rankCell">{this.props.channelTitle}</p>
             </div>
             <div>
-                <p>Subskrypcje</p>
+                <p className="rankCell">Subskrypcje</p>
             </div>
             <div>
-                <p>Przyrost 24h</p>
+                <p className="rankCell">Przyrost 24h</p>
             </div>
             <div>
-                <p>Przyrost 7dni</p>
+                <p className="rankCell">Przyrost 7dni</p>
             </div>
             <div>
-                <p>Przyrost miesiąc</p>
+                <p className="rankCell">Przyrost miesiąc</p>
             </div>
             <div>
-                <p>Wyświetlenia</p>
+                <p className="rankCell">Wyświetlenia</p>
             </div>
         </div>
     }

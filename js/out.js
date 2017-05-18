@@ -12725,7 +12725,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderNumber' },
                         'Lp.'
                     )
                 ),
@@ -12734,7 +12734,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Nazwa kana\u0142u'
                     )
                 ),
@@ -12743,7 +12743,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Subskrypcje'
                     )
                 ),
@@ -12752,7 +12752,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Przyrost 24h'
                     )
                 ),
@@ -12761,7 +12761,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Przyrost 7dni'
                     )
                 ),
@@ -12770,7 +12770,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Przyrost miesi\u0105c'
                     )
                 ),
@@ -12779,7 +12779,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankHeaderCell' },
                         'Wy\u015Bwietlenia'
                     )
                 )
@@ -12810,7 +12810,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'numberCell' },
                         this.props.lp
                     )
                 ),
@@ -12819,7 +12819,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         this.props.channelTitle
                     )
                 ),
@@ -12828,7 +12828,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         'Subskrypcje'
                     )
                 ),
@@ -12837,7 +12837,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         'Przyrost 24h'
                     )
                 ),
@@ -12846,7 +12846,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         'Przyrost 7dni'
                     )
                 ),
@@ -12855,7 +12855,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         'Przyrost miesi\u0105c'
                     )
                 ),
@@ -12864,7 +12864,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'rankCell' },
                         'Wy\u015Bwietlenia'
                     )
                 )

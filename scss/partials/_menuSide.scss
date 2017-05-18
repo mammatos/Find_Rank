@@ -1,7 +1,6 @@
 $topBtn: #359ED6;
 $topBtnLighten: #4cacdf;
-$topBtnDarken: #E01A27;
-$color4: #e94043;
+$topBtnFocus: #E01A27;
 
 button.topBtn {
     background-color: $topBtn;
@@ -12,5 +11,6 @@ button.topBtn:hover {
 }
 
 button.topBtn:focus {
-    background-color: $topBtnDarken;
+    background-color: $topBtnFocus;
 }
+
