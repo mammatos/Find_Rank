@@ -93,10 +93,10 @@ class RankVerseHeader extends React.Component {
                 <p className="rankHeaderCell">Wyświetlenia</p>
             </div>
             <div>
-                <p className="rankHeaderCell"><i className="thumb_up small">up</i></p>
+                <p className="rankHeaderCell"><i className="fa fa-thumbs-up" aria-hidden="true"></i></p>
             </div>
             <div>
-                <p className="rankHeaderCell"><i className="thumb_down small">down</i></p>
+                <p className="rankHeaderCell"><i className="fa fa-thumbs-down" aria-hidden="true"></i></p>
             </div>
             <div>
                 <p className="rankHeaderCell">Zobacz</p>
@@ -131,7 +131,11 @@ class RankVerse extends React.Component {
                 <p className="rankCell">{this.props.dislikes}</p>
             </div>
             <div>
-                <p className="rankCell"><a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">Play</a></p>
+                <p className="rankCell">
+                    <a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">
+                        <i className="play waves-effect waves-light fa fa-play-circle medium" aria-hidden="true"></i>
+                    </a>
+                </p>
             </div>
         </div>
     }

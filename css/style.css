@@ -86,3 +86,9 @@ button.topBtn:focus {
     width: 2rem;
     text-align: center;
     padding: 0.5rem 0; }
+  .rankVerse .play {
+    color: #E01A27; }
+  .rankVerse .play:hover {
+    color: #aa1922; }
+  .rankVerse .play {
+    color: #E01A27; }

@@ -12767,11 +12767,7 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        _react2.default.createElement(
-                            'i',
-                            { className: 'thumb_up small' },
-                            'up'
-                        )
+                        _react2.default.createElement('i', { className: 'fa fa-thumbs-up', 'aria-hidden': 'true' })
                     )
                 ),
                 _react2.default.createElement(
@@ -12780,11 +12776,7 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        _react2.default.createElement(
-                            'i',
-                            { className: 'thumb_down small' },
-                            'down'
-                        )
+                        _react2.default.createElement('i', { className: 'fa fa-thumbs-down', 'aria-hidden': 'true' })
                     )
                 ),
                 _react2.default.createElement(
@@ -12881,7 +12873,7 @@ var RankVerse = function (_React$Component4) {
                         _react2.default.createElement(
                             'a',
                             { href: "http://youtube.com/embed/" + this.props.videoId, target: '_blank' },
-                            'Play'
+                            _react2.default.createElement('i', { className: 'play waves-effect waves-light fa fa-play-circle medium', 'aria-hidden': 'true' })
                         )
                     )
                 )
