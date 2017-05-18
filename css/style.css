@@ -52,7 +52,7 @@ button.topBtn:hover {
   background-color: #4cacdf; }
 
 button.topBtn:focus {
-  background-color: #E01A27; }
+  background-color: #0b415e; }
 
 .wrapperApp {
   display: flex;
@@ -86,9 +86,12 @@ button.topBtn:focus {
     width: 2rem;
     text-align: center;
     padding: 0.5rem 0; }
-  .rankVerse .play {
+  .rankVerse .playBtn {
+    border-radius: 15px;
     color: #E01A27; }
-  .rankVerse .play:hover {
-    color: #aa1922; }
-  .rankVerse .play {
-    color: #E01A27; }
+  .rankVerse .playIcon {
+    color: #fff; }
+
+.videoFrame {
+  width: 640px;
+  height: 360px; }

@@ -132,8 +132,11 @@ class RankVerse extends React.Component {
             </div>
             <div>
                 <p className="rankCell">
-                    <button className="waves-effect waves-light">
-                        <i className="play fa fa-play-circle medium" aria-hidden="true"></i>
+                    <button 
+                        className="playBtn waves-effect waves-light btn-large red"
+                        onClick={event => this.onClickPlay(event)}
+                    >
+                        <i className="playIcon fa fa-play" aria-hidden="true"></i>
                     </button>
                     {/*<a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">
                         <i className="play waves-effect waves-light fa fa-play-circle medium" aria-hidden="true"></i>
@@ -142,9 +145,23 @@ class RankVerse extends React.Component {
             </div>
         </div>
     }
+
+    onClickPlay(){
+        this.props.mojafunkcja(this.props.videoId);
+        console.log("mojafunkcja", this.props.mojafunkcja);
+    }
+
 }
 
 class Data extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state ={
+            vidId: null
+        };
+    }
+
     render() {
         return <div>
             <h1>Statystyki</h1>
@@ -160,10 +177,19 @@ class Data extends React.Component {
                             dislikes={item.statistics.dislikeCount}
                             videoId={item.id}
                             key={item.id}
+                            mojafunkcja={(videoId) => {this.playNow(videoId)}}
                         />
             })}
+            <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
         </div>
     }
+
+    playNow(videoId){
+        this.setState({
+            vidId: videoId
+        });
+    }
+
 }
 
 class Container extends React.Component {

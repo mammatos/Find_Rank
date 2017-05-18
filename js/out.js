@@ -12807,6 +12807,8 @@ var RankVerse = function (_React$Component4) {
     _createClass(RankVerse, [{
         key: 'render',
         value: function render() {
+            var _this7 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'rankVerse' },
@@ -12872,12 +12874,23 @@ var RankVerse = function (_React$Component4) {
                         { className: 'rankCell' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'waves-effect waves-light' },
-                            _react2.default.createElement('i', { className: 'play fa fa-play-circle medium', 'aria-hidden': 'true' })
+                            {
+                                className: 'playBtn waves-effect waves-light btn-large red',
+                                onClick: function onClick(event) {
+                                    return _this7.onClickPlay(event);
+                                }
+                            },
+                            _react2.default.createElement('i', { className: 'playIcon fa fa-play', 'aria-hidden': 'true' })
                         )
                     )
                 )
             );
+        }
+    }, {
+        key: 'onClickPlay',
+        value: function onClickPlay() {
+            this.props.mojafunkcja(this.props.videoId);
+            console.log("mojafunkcja", this.props.mojafunkcja);
         }
     }]);
 
@@ -12887,15 +12900,22 @@ var RankVerse = function (_React$Component4) {
 var Data = function (_React$Component5) {
     _inherits(Data, _React$Component5);
 
-    function Data() {
+    function Data(props) {
         _classCallCheck(this, Data);
 
-        return _possibleConstructorReturn(this, (Data.__proto__ || Object.getPrototypeOf(Data)).apply(this, arguments));
+        var _this8 = _possibleConstructorReturn(this, (Data.__proto__ || Object.getPrototypeOf(Data)).call(this, props));
+
+        _this8.state = {
+            vidId: null
+        };
+        return _this8;
     }
 
     _createClass(Data, [{
         key: 'render',
         value: function render() {
+            var _this9 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -12919,10 +12939,21 @@ var Data = function (_React$Component5) {
                         likes: item.statistics.likeCount,
                         dislikes: item.statistics.dislikeCount,
                         videoId: item.id,
-                        key: item.id
+                        key: item.id,
+                        mojafunkcja: function mojafunkcja(videoId) {
+                            _this9.playNow(videoId);
+                        }
                     });
-                })
+                }),
+                _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId })
             );
+        }
+    }, {
+        key: 'playNow',
+        value: function playNow(videoId) {
+            this.setState({
+                vidId: videoId
+            });
         }
     }]);
 
@@ -12935,29 +12966,29 @@ var Container = function (_React$Component6) {
     function Container(props) {
         _classCallCheck(this, Container);
 
-        var _this8 = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+        var _this10 = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
 
-        _this8.state = {
+        _this10.state = {
             items: [],
             label: ""
         };
-        return _this8;
+        return _this10;
     }
 
     _createClass(Container, [{
         key: 'render',
         value: function render() {
-            var _this9 = this;
+            var _this11 = this;
 
             return _react2.default.createElement(
                 'div',
                 { className: 'wrapperApp' },
                 _react2.default.createElement(Menu, {
                     callback10: function callback10() {
-                        return _this9.runApiTop10();
+                        return _this11.runApiTop10();
                     },
                     callback50: function callback50() {
-                        return _this9.runApiTop50();
+                        return _this11.runApiTop50();
                     }
                 }),
                 _react2.default.createElement(Data, {
@@ -12969,7 +13000,7 @@ var Container = function (_React$Component6) {
     }, {
         key: 'runApiTop10',
         value: function runApiTop10() {
-            var _this10 = this;
+            var _this12 = this;
 
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
@@ -12982,7 +13013,7 @@ var Container = function (_React$Component6) {
                 method: 'GET'
             }).done(function (response) {
                 console.log(response);
-                _this10.setState({
+                _this12.setState({
                     items: response.items,
                     label: "top 10"
                 });
@@ -12991,7 +13022,7 @@ var Container = function (_React$Component6) {
     }, {
         key: 'runApiTop50',
         value: function runApiTop50() {
-            var _this11 = this;
+            var _this13 = this;
 
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
@@ -13004,7 +13035,7 @@ var Container = function (_React$Component6) {
                 method: 'GET'
             }).done(function (response) {
                 console.log(response);
-                _this11.setState({
+                _this13.setState({
                     items: response.items,
                     label: "top 50"
                 });

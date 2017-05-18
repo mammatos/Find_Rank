@@ -1,6 +1,5 @@
-$play: #E01A27;
-$playHover: #aa1922;
-$playFocus: #E01A27;
+$playIcon: #fff;
+$playBtn: #E01A27;
 
 .rankVerseHeader {
     font-weight: bold;
@@ -22,8 +21,6 @@ $playFocus: #E01A27;
     }
 } 
 
-
-
 .rankVerse {
     display: flex;
     justify-content: space-between;
@@ -42,18 +39,20 @@ $playFocus: #E01A27;
         padding: 0.5rem 0;
     }
 
-    .play {
-        color: $play;
+    .playBtn {
+        border-radius: 15px;
+        color: $playBtn;
     }
 
-    .play:hover {
-        color: $playHover;
+    .playIcon {
+        color: $playIcon;
     }
 
-    .play {
-        color: $play;
-    }
+}
 
+.videoFrame {
+    width: 640px;
+    height: 360px;
 }
 
 
