@@ -12744,7 +12744,7 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        'Subskrypcje'
+                        'Nazwa video'
                     )
                 ),
                 _react2.default.createElement(
@@ -12753,7 +12753,7 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        'Przyrost 24h'
+                        'Wy\u015Bwietlenia'
                     )
                 ),
                 _react2.default.createElement(
@@ -12762,7 +12762,11 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        'Przyrost 7dni'
+                        _react2.default.createElement(
+                            'i',
+                            { className: 'thumb_up small' },
+                            'up'
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -12771,7 +12775,11 @@ var RankVerseHeader = function (_React$Component3) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankHeaderCell' },
-                        'Przyrost miesi\u0105c'
+                        _react2.default.createElement(
+                            'i',
+                            { className: 'thumb_down small' },
+                            'down'
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -12829,7 +12837,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankCell' },
-                        'Subskrypcje'
+                        this.props.title
                     )
                 ),
                 _react2.default.createElement(
@@ -12838,7 +12846,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankCell' },
-                        'Przyrost 24h'
+                        this.props.views
                     )
                 ),
                 _react2.default.createElement(
@@ -12847,7 +12855,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankCell' },
-                        'Przyrost 7dni'
+                        this.props.likes
                     )
                 ),
                 _react2.default.createElement(
@@ -12856,7 +12864,7 @@ var RankVerse = function (_React$Component4) {
                     _react2.default.createElement(
                         'p',
                         { className: 'rankCell' },
-                        'Przyrost miesi\u0105c'
+                        this.props.dislikes
                     )
                 ),
                 _react2.default.createElement(
@@ -12897,7 +12905,14 @@ var Data = function (_React$Component5) {
                 ),
                 _react2.default.createElement(RankVerseHeader, null),
                 this.props.items.map(function (item, index) {
-                    return _react2.default.createElement(RankVerse, { lp: index + 1, channelTitle: item.snippet.channelTitle, key: item.id });
+                    return _react2.default.createElement(RankVerse, {
+                        lp: index + 1,
+                        channelTitle: item.snippet.channelTitle,
+                        title: item.snippet.title,
+                        views: item.statistics.viewCount,
+                        likes: item.statistics.likeCount,
+                        dislikes: item.statistics.dislikeCount,
+                        key: item.id });
                 })
             );
         }

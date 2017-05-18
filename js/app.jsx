@@ -83,16 +83,16 @@ class RankVerseHeader extends React.Component {
                 <p className="rankHeaderCell">Nazwa kanału</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Subskrypcje</p>
+                <p className="rankHeaderCell">Nazwa video</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Przyrost 24h</p>
+                <p className="rankHeaderCell">Wyświetlenia</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Przyrost 7dni</p>
+                <p className="rankHeaderCell"><i className="thumb_up small">up</i></p>
             </div>
             <div>
-                <p className="rankHeaderCell">Przyrost miesiąc</p>
+                <p className="rankHeaderCell"><i className="thumb_down small">down</i></p>
             </div>
             <div>
                 <p className="rankHeaderCell">Wyświetlenia</p>
@@ -115,16 +115,16 @@ class RankVerse extends React.Component {
                 <p className="rankCell">{this.props.channelTitle}</p>
             </div>
             <div>
-                <p className="rankCell">Subskrypcje</p>
+                <p className="rankCell">{this.props.title}</p>
             </div>
             <div>
-                <p className="rankCell">Przyrost 24h</p>
+                <p className="rankCell">{this.props.views}</p>
             </div>
             <div>
-                <p className="rankCell">Przyrost 7dni</p>
+                <p className="rankCell">{this.props.likes}</p>
             </div>
             <div>
-                <p className="rankCell">Przyrost miesiąc</p>
+                <p className="rankCell">{this.props.dislikes}</p>
             </div>
             <div>
                 <p className="rankCell">Wyświetlenia</p>
@@ -139,7 +139,14 @@ class Data extends React.Component {
             <h1>Statystyki</h1>
             <RankVerseHeader/>
             {this.props.items.map((item, index) => {
-                return <RankVerse lp={index + 1} channelTitle={item.snippet.channelTitle} key={item.id}/>
+                return <RankVerse 
+                            lp={index + 1} 
+                            channelTitle={item.snippet.channelTitle} 
+                            title={item.snippet.title} 
+                            views={item.statistics.viewCount}
+                            likes={item.statistics.likeCount}
+                            dislikes={item.statistics.dislikeCount}
+                            key={item.id}/>
             })}
         </div>
     }
