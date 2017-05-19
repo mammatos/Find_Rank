@@ -12642,8 +12642,6 @@ var Button = function (_React$Component) {
     }, {
         key: 'onClick',
         value: function onClick(event) {
-            // console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
-            // console.log("this.props.callback", this.props.mojafunkcja);
             this.props.mojafunkcja();
         }
     }]);
@@ -12667,11 +12665,12 @@ var Menu = function (_React$Component2) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'menuWrapper' },
                 _react2.default.createElement(
                     'h1',
-                    null,
-                    'Menu'
+                    { className: 'menuTitle' },
+                    'Wybierz',
+                    _react2.default.createElement('i', { className: ' arrowIcon fa fa-arrow-right', 'aria-hidden': 'true' })
                 ),
                 _react2.default.createElement(Button, {
                     text: 'TOP 10',
@@ -12730,7 +12729,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderNumber' },
+                        { className: 'rankColNumber' },
                         'Lp.'
                     )
                 ),
@@ -12739,7 +12738,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
+                        { className: 'rankColChannel' },
                         'Nazwa kana\u0142u'
                     )
                 ),
@@ -12748,7 +12747,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
+                        { className: 'rankColVideoName' },
                         'Nazwa video'
                     )
                 ),
@@ -12757,7 +12756,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
+                        { className: 'rankColViews' },
                         'Wy\u015Bwietlenia'
                     )
                 ),
@@ -12766,8 +12765,8 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
-                        _react2.default.createElement('i', { className: 'fa fa-thumbs-up', 'aria-hidden': 'true' })
+                        { className: 'rankColLikes' },
+                        _react2.default.createElement('i', { className: 'thumbUp fa fa-thumbs-up', 'aria-hidden': 'true' })
                     )
                 ),
                 _react2.default.createElement(
@@ -12775,8 +12774,8 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
-                        _react2.default.createElement('i', { className: 'fa fa-thumbs-down', 'aria-hidden': 'true' })
+                        { className: 'rankColDislikes' },
+                        _react2.default.createElement('i', { className: 'thumbDown fa fa-thumbs-down', 'aria-hidden': 'true' })
                     )
                 ),
                 _react2.default.createElement(
@@ -12784,7 +12783,7 @@ var RankVerseHeader = function (_React$Component3) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankHeaderCell' },
+                        { className: 'rankColPlay' },
                         'Zobacz'
                     )
                 )
@@ -12817,7 +12816,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'numberCell' },
+                        { className: 'rankColNumber' },
                         this.props.lp
                     )
                 ),
@@ -12826,7 +12825,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColChannel' },
                         this.props.channelTitle
                     )
                 ),
@@ -12835,7 +12834,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColVideoName' },
                         this.props.title
                     )
                 ),
@@ -12844,7 +12843,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColViews' },
                         this.props.views
                     )
                 ),
@@ -12853,7 +12852,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColLikes' },
                         this.props.likes
                     )
                 ),
@@ -12862,7 +12861,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColDislikes' },
                         this.props.dislikes
                     )
                 ),
@@ -12871,7 +12870,7 @@ var RankVerse = function (_React$Component4) {
                     null,
                     _react2.default.createElement(
                         'p',
-                        { className: 'rankCell' },
+                        { className: 'rankColPlay' },
                         _react2.default.createElement(
                             'button',
                             {
@@ -12918,16 +12917,11 @@ var Data = function (_React$Component5) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'dataSide' },
                 _react2.default.createElement(
                     'h1',
-                    null,
-                    'Statystyki'
-                ),
-                _react2.default.createElement(
-                    'h2',
-                    null,
-                    this.props.label
+                    { className: 'dataTitle' },
+                    'Sprawd\u017A najbardziej popularne video na YouTube'
                 ),
                 _react2.default.createElement(RankVerseHeader, null),
                 this.props.items.map(function (item, index) {
@@ -12945,7 +12939,11 @@ var Data = function (_React$Component5) {
                         }
                     });
                 }),
-                _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId })
+                _react2.default.createElement(
+                    'div',
+                    { className: 'videoWrapper' },
+                    _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId })
+                )
             );
         }
     }, {
@@ -13012,7 +13010,7 @@ var Container = function (_React$Component6) {
                 },
                 method: 'GET'
             }).done(function (response) {
-                console.log(response);
+                // console.log(response);
                 _this12.setState({
                     items: response.items,
                     label: "top 10"
@@ -13034,7 +13032,7 @@ var Container = function (_React$Component6) {
                 },
                 method: 'GET'
             }).done(function (response) {
-                console.log(response);
+                // console.log(response);
                 _this13.setState({
                     items: response.items,
                     label: "top 50"

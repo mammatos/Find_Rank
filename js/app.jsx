@@ -34,8 +34,6 @@ class Button extends React.Component {
     }
 
     onClick(event){
-        // console.log("To jest miejsce gdzie powstała metoda dla eventu click w klasie buttona" + this.state.text);
-        // console.log("this.props.callback", this.props.mojafunkcja);
         this.props.mojafunkcja();
 
     }
@@ -43,9 +41,11 @@ class Button extends React.Component {
 
 class Menu extends React.Component {
     render() {
-        return <div>
-            <h1>Menu</h1>
-            <Button 
+        return <div className="menuWrapper">
+            <h1 className="menuTitle">Wybierz
+                <i className=" arrowIcon fa fa-arrow-right" aria-hidden="true"></i>
+            </h1>
+            <Button
                 text="TOP 10"
                 mojafunkcja={() => this.handleTop10ButtonClicked()}
             />
@@ -81,25 +81,29 @@ class RankVerseHeader extends React.Component {
     render() {
         return <div className="rankVerseHeader">
             <div>
-                <p className="rankHeaderNumber">Lp.</p>
+                <p className="rankColNumber">Lp.</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Nazwa kanału</p>
+                <p className="rankColChannel">Nazwa kanału</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Nazwa video</p>
+                <p className="rankColVideoName">Nazwa video</p>
             </div>
             <div>
-                <p className="rankHeaderCell">Wyświetlenia</p>
+                <p className="rankColViews">Wyświetlenia</p>
             </div>
             <div>
-                <p className="rankHeaderCell"><i className="fa fa-thumbs-up" aria-hidden="true"></i></p>
+                <p className="rankColLikes">
+                    <i className="thumbUp fa fa-thumbs-up" aria-hidden="true"></i>
+                </p>
             </div>
             <div>
-                <p className="rankHeaderCell"><i className="fa fa-thumbs-down" aria-hidden="true"></i></p>
+                <p className="rankColDislikes">
+                    <i className="thumbDown fa fa-thumbs-down" aria-hidden="true"></i>
+                </p>
             </div>
             <div>
-                <p className="rankHeaderCell">Zobacz</p>
+                <p className="rankColPlay">Zobacz</p>
             </div>
         </div>
     }
@@ -113,34 +117,31 @@ class RankVerse extends React.Component {
     render() {
         return <div className="rankVerse">
             <div>
-                <p className="numberCell">{this.props.lp}</p>
+                <p className="rankColNumber">{this.props.lp}</p>
             </div>
             <div>
-                <p className="rankCell">{this.props.channelTitle}</p>
+                <p className="rankColChannel">{this.props.channelTitle}</p>
             </div>
             <div>
-                <p className="rankCell">{this.props.title}</p>
+                <p className="rankColVideoName">{this.props.title}</p>
             </div>
             <div>
-                <p className="rankCell">{this.props.views}</p>
+                <p className="rankColViews">{this.props.views}</p>
             </div>
             <div>
-                <p className="rankCell">{this.props.likes}</p>
+                <p className="rankColLikes">{this.props.likes}</p>
             </div>
             <div>
-                <p className="rankCell">{this.props.dislikes}</p>
+                <p className="rankColDislikes">{this.props.dislikes}</p>
             </div>
             <div>
-                <p className="rankCell">
+                <p className="rankColPlay">
                     <button 
                         className="playBtn waves-effect waves-light btn-large red"
                         onClick={event => this.onClickPlay(event)}
                     >
                         <i className="playIcon fa fa-play" aria-hidden="true"></i>
                     </button>
-                    {/*<a href={"http://youtube.com/embed/" + this.props.videoId} target="_blank">
-                        <i className="play waves-effect waves-light fa fa-play-circle medium" aria-hidden="true"></i>
-                    </a>*/}
                 </p>
             </div>
         </div>
@@ -163,9 +164,9 @@ class Data extends React.Component {
     }
 
     render() {
-        return <div>
-            <h1>Statystyki</h1>
-            <h2>{this.props.label}</h2>
+        return <div className="dataSide">
+            <h1 className="dataTitle">Sprawdź najbardziej popularne video na YouTube</h1>
+            {/*<h2 className="dataDescription">{this.props.label}</h2>*/}
             <RankVerseHeader/>
             {this.props.items.map((item, index) => {
                 return <RankVerse 
@@ -180,7 +181,9 @@ class Data extends React.Component {
                             mojafunkcja={(videoId) => {this.playNow(videoId)}}
                         />
             })}
-            <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
+            <div className="videoWrapper">
+                <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
+            </div>
         </div>
     }
 
@@ -227,7 +230,7 @@ class Container extends React.Component {
             method: 'GET'
         })
         .done((response) => {
-            console.log(response);
+            // console.log(response);
             this.setState({
                 items: response.items,
                 label: "top 10"
@@ -247,7 +250,7 @@ class Container extends React.Component {
             method: 'GET'
         })
         .done((response) => {
-            console.log(response);
+            // console.log(response);
             this.setState({
                 items: response.items,
                 label: "top 50",

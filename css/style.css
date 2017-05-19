@@ -45,8 +45,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+.menuTitle {
+  font-size: 1.7rem;
+  position: relative;
+  top: 4rem;
+  left: 26.3rem; }
+
+.arrowIcon {
+  margin-left: 0.8rem;
+  font-size: 1rem; }
+
 button.topBtn {
   background-color: #359ED6; }
+
+.menuWrapper button:first-of-type {
+  position: relative;
+  top: 0.3rem;
+  left: 36rem; }
+
+.menuWrapper button:nth-of-type(2) {
+  position: relative;
+  top: 0.3rem;
+  left: 38rem; }
 
 button.topBtn:hover {
   background-color: #4cacdf; }
@@ -54,37 +74,48 @@ button.topBtn:hover {
 button.topBtn:focus {
   background-color: #0b415e; }
 
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif; }
+
 .wrapperApp {
   display: flex;
   justify-content: space-around; }
+
+.dataSide {
+  margin-right: -3rem; }
+
+.dataTitle {
+  font-size: 2.5rem;
+  padding-bottom: 3rem; }
+
+.dataDescription {
+  font-size: 1.5rem; }
 
 .rankVerseHeader {
   font-weight: bold;
   font-size: 1.3rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  padding: 0.5rem; }
+  border: 2px solid black;
+  padding: 1.5rem 0.5rem; }
+  .rankVerseHeader p {
+    text-align: center; }
   .rankVerseHeader .rankHeaderCell {
     padding: 1rem; }
-  .rankVerseHeader .rankHeaderNumber {
-    width: 2rem;
-    text-align: center;
-    padding: 0.5rem 0; }
+  .rankVerseHeader .thumbUp {
+    font-size: 1.5rem; }
+  .rankVerseHeader .thumbDown {
+    font-size: 1.5rem; }
 
 .rankVerse {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border: 1px solid black;
   padding: 0.5rem; }
+  .rankVerse p {
+    text-align: center; }
   .rankVerse .rankCell {
     width: 8rem;
-    padding: 0.5rem 0; }
-  .rankVerse .numberCell {
-    width: 2rem;
-    text-align: center;
     padding: 0.5rem 0; }
   .rankVerse .playBtn {
     border-radius: 15px;
@@ -93,5 +124,27 @@ button.topBtn:focus {
     color: #fff; }
 
 .videoFrame {
-  width: 640px;
-  height: 360px; }
+  width: 440px;
+  height: 250px;
+  position: absolute;
+  top: 9.6rem;
+  left: 1rem; }
+
+.rankColNumber {
+  width: 4rem; }
+
+.rankColChannel {
+  width: 12rem; }
+
+.rankColVideoName {
+  width: 11rem; }
+
+.rankColViews {
+  width: 8rem; }
+
+.rankColLikes,
+.rankColDislikes {
+  width: 5rem; }
+
+.rankColPlay {
+  width: 6rem; }

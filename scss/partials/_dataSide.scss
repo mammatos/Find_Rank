@@ -1,41 +1,59 @@
-$playIcon: #fff;
+$playArrow: #fff;
 $playBtn: #E01A27;
+
+.dataSide {
+    margin-right: -3rem;
+
+}
+
+.dataTitle {
+    font-size: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.dataDescription {
+    font-size: 1.5rem;
+}
 
 .rankVerseHeader {
     font-weight: bold;
     font-size: 1.3rem;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
-    padding: 0.5rem;
+    border: 2px solid black;
+    padding: 1.5rem 0.5rem;
+
+    p {
+        text-align: center;
+    }
 
     .rankHeaderCell {
         padding: 1rem;
     }
 
-    .rankHeaderNumber {
-        width: 2rem;
-        text-align: center;
-        padding: 0.5rem 0;
+    .thumbUp {
+        font-size: 1.5rem;
+    }
+    
+    .thumbDown {
+        font-size: 1.5rem;
     }
 } 
 
 .rankVerse {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     border: 1px solid black;
     padding: 0.5rem;
 
-    .rankCell {
-        width: 8rem;
-        padding: 0.5rem 0;
+    p {
+        text-align: center;
     }
 
-    .numberCell {
-        width: 2rem;
-        text-align: center;
+    .rankCell {
+        width: 8rem;
         padding: 0.5rem 0;
     }
 
@@ -45,15 +63,52 @@ $playBtn: #E01A27;
     }
 
     .playIcon {
-        color: $playIcon;
+        color: $playArrow;
     }
 
 }
 
-.videoFrame {
-    width: 640px;
-    height: 360px;
+.videoWrapper {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
 }
 
+.videoFrame {
+    // width: 370px;
+    // height: 230px;
+    width: 440px;
+    height: 250px;
+    position: absolute;
+    top: 9.6rem;
+    left: 1rem;
+}
 
+.rankColNumber {
+    width: 4rem;
+}
+
+.rankColChannel {
+    width: 12rem;
+}
+
+.rankColVideoName {
+    width: 11rem;
+}
+
+.rankColViews {
+    width: 8rem;
+}
+
+.rankColLikes,
+.rankColDislikes {
+    width: 5rem;
+}
+
+.rankColPlay {
+    width: 6rem;
+}
 
