@@ -12595,6 +12595,14 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouter = __webpack_require__(223);
 
+var _menu = __webpack_require__(244);
+
+var _menu2 = _interopRequireDefault(_menu);
+
+var _data = __webpack_require__(245);
+
+var _data2 = _interopRequireDefault(_data);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12603,393 +12611,41 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//-------------//
-//----Menu-----//
-//-------------//
+// Import components
 
 
-var Button = function (_React$Component) {
-    _inherits(Button, _React$Component);
-
-    function Button(props) {
-        _classCallCheck(this, Button);
-
-        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
-
-        _this.state = {
-            text: _this.props.text
-        };
-        return _this;
-    }
-
-    _createClass(Button, [{
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'button',
-                {
-                    type: 'button',
-                    className: 'topBtn btn waves-effect waves-light',
-                    onClick: function onClick(event) {
-                        return _this2.onClick(event);
-                    }
-                },
-                this.state.text
-            );
-        }
-    }, {
-        key: 'onClick',
-        value: function onClick(event) {
-            this.props.mojafunkcja();
-        }
-    }]);
-
-    return Button;
-}(_react2.default.Component);
-
-var Menu = function (_React$Component2) {
-    _inherits(Menu, _React$Component2);
-
-    function Menu() {
-        _classCallCheck(this, Menu);
-
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
-    }
-
-    _createClass(Menu, [{
-        key: 'render',
-        value: function render() {
-            var _this4 = this;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'menuWrapper' },
-                _react2.default.createElement(
-                    'h1',
-                    { className: 'menuTitle' },
-                    'Wybierz',
-                    _react2.default.createElement('i', { className: ' arrowIcon fa fa-arrow-right', 'aria-hidden': 'true' })
-                ),
-                _react2.default.createElement(Button, {
-                    text: 'TOP 10',
-                    mojafunkcja: function mojafunkcja() {
-                        return _this4.handleTop10ButtonClicked();
-                    }
-                }),
-                _react2.default.createElement(Button, {
-                    text: 'TOP 50',
-                    mojafunkcja: function mojafunkcja() {
-                        return _this4.handleTop50ButtonClicked();
-                    }
-                })
-            );
-        }
-    }, {
-        key: 'handleTop10ButtonClicked',
-        value: function handleTop10ButtonClicked() {
-            this.props.callback10();
-        }
-    }, {
-        key: 'handleTop50ButtonClicked',
-        value: function handleTop50ButtonClicked() {
-            this.props.callback50();
-        }
-    }]);
-
-    return Menu;
-}(_react2.default.Component);
-
-//-------------//
-//----Rank-----//
-//-------------//
-
-
-var RankVerseHeader = function (_React$Component3) {
-    _inherits(RankVerseHeader, _React$Component3);
-
-    function RankVerseHeader(props) {
-        _classCallCheck(this, RankVerseHeader);
-
-        var _this5 = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
-
-        _this5.state = {};
-        return _this5;
-    }
-
-    _createClass(RankVerseHeader, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'rankVerseHeader' },
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColNumber' },
-                        'Lp.'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColChannel' },
-                        'Nazwa kana\u0142u'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColVideoName' },
-                        'Nazwa video'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColViews' },
-                        'Wy\u015Bwietlenia'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColLikes' },
-                        _react2.default.createElement('i', { className: 'thumbUp fa fa-thumbs-up', 'aria-hidden': 'true' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColDislikes' },
-                        _react2.default.createElement('i', { className: 'thumbDown fa fa-thumbs-down', 'aria-hidden': 'true' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColPlay' },
-                        'Zobacz'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return RankVerseHeader;
-}(_react2.default.Component);
-
-var RankVerse = function (_React$Component4) {
-    _inherits(RankVerse, _React$Component4);
-
-    function RankVerse(props) {
-        _classCallCheck(this, RankVerse);
-
-        return _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
-    }
-
-    _createClass(RankVerse, [{
-        key: 'render',
-        value: function render() {
-            var _this7 = this;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'rankVerse' },
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColNumber' },
-                        this.props.lp
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColChannel' },
-                        this.props.channelTitle
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColVideoName' },
-                        this.props.title
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColViews' },
-                        this.props.views
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColLikes' },
-                        this.props.likes
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColDislikes' },
-                        this.props.dislikes
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    null,
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'rankColPlay' },
-                        _react2.default.createElement(
-                            'button',
-                            {
-                                className: 'playBtn waves-effect waves-light btn-large red',
-                                onClick: function onClick(event) {
-                                    return _this7.onClickPlay(event);
-                                }
-                            },
-                            _react2.default.createElement('i', { className: 'playIcon fa fa-play', 'aria-hidden': 'true' })
-                        )
-                    )
-                )
-            );
-        }
-    }, {
-        key: 'onClickPlay',
-        value: function onClickPlay() {
-            this.props.mojafunkcja(this.props.videoId);
-            console.log("mojafunkcja", this.props.mojafunkcja);
-        }
-    }]);
-
-    return RankVerse;
-}(_react2.default.Component);
-
-var Data = function (_React$Component5) {
-    _inherits(Data, _React$Component5);
-
-    function Data(props) {
-        _classCallCheck(this, Data);
-
-        var _this8 = _possibleConstructorReturn(this, (Data.__proto__ || Object.getPrototypeOf(Data)).call(this, props));
-
-        _this8.state = {
-            vidId: null
-        };
-        return _this8;
-    }
-
-    _createClass(Data, [{
-        key: 'render',
-        value: function render() {
-            var _this9 = this;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'dataSide' },
-                _react2.default.createElement(
-                    'h1',
-                    { className: 'dataTitle' },
-                    'Sprawd\u017A najbardziej popularne video na YouTube'
-                ),
-                _react2.default.createElement(RankVerseHeader, null),
-                this.props.items.map(function (item, index) {
-                    return _react2.default.createElement(RankVerse, {
-                        lp: index + 1,
-                        channelTitle: item.snippet.channelTitle,
-                        title: item.snippet.title,
-                        views: item.statistics.viewCount,
-                        likes: item.statistics.likeCount,
-                        dislikes: item.statistics.dislikeCount,
-                        videoId: item.id,
-                        key: item.id,
-                        mojafunkcja: function mojafunkcja(videoId) {
-                            _this9.playNow(videoId);
-                        }
-                    });
-                }),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'videoWrapper' },
-                    _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId })
-                )
-            );
-        }
-    }, {
-        key: 'playNow',
-        value: function playNow(videoId) {
-            this.setState({
-                vidId: videoId
-            });
-        }
-    }]);
-
-    return Data;
-}(_react2.default.Component);
-
-var Container = function (_React$Component6) {
-    _inherits(Container, _React$Component6);
+var Container = function (_React$Component) {
+    _inherits(Container, _React$Component);
 
     function Container(props) {
         _classCallCheck(this, Container);
 
-        var _this10 = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
 
-        _this10.state = {
+        _this.state = {
             items: [],
             label: ""
         };
-        return _this10;
+        return _this;
     }
 
     _createClass(Container, [{
         key: 'render',
         value: function render() {
-            var _this11 = this;
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
                 { className: 'wrapperApp' },
-                _react2.default.createElement(Menu, {
+                _react2.default.createElement(_menu2.default, {
                     callback10: function callback10() {
-                        return _this11.runApiTop10();
+                        return _this2.runApiTop10();
                     },
                     callback50: function callback50() {
-                        return _this11.runApiTop50();
+                        return _this2.runApiTop50();
                     }
                 }),
-                _react2.default.createElement(Data, {
+                _react2.default.createElement(_data2.default, {
                     items: this.state.items,
                     label: this.state.label
                 })
@@ -12998,7 +12654,7 @@ var Container = function (_React$Component6) {
     }, {
         key: 'runApiTop10',
         value: function runApiTop10() {
-            var _this12 = this;
+            var _this3 = this;
 
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
@@ -13011,7 +12667,7 @@ var Container = function (_React$Component6) {
                 method: 'GET'
             }).done(function (response) {
                 // console.log(response);
-                _this12.setState({
+                _this3.setState({
                     items: response.items,
                     label: "top 10"
                 });
@@ -13020,7 +12676,7 @@ var Container = function (_React$Component6) {
     }, {
         key: 'runApiTop50',
         value: function runApiTop50() {
-            var _this13 = this;
+            var _this4 = this;
 
             $.ajax({
                 url: 'https://www.googleapis.com/youtube/v3/videos',
@@ -13033,7 +12689,7 @@ var Container = function (_React$Component6) {
                 method: 'GET'
             }).done(function (response) {
                 // console.log(response);
-                _this13.setState({
+                _this4.setState({
                     items: response.items,
                     label: "top 50"
                 });
@@ -13044,8 +12700,8 @@ var Container = function (_React$Component6) {
     return Container;
 }(_react2.default.Component);
 
-var App = function (_React$Component7) {
-    _inherits(App, _React$Component7);
+var App = function (_React$Component2) {
+    _inherits(App, _React$Component2);
 
     function App() {
         _classCallCheck(this, App);
@@ -28182,6 +27838,503 @@ module.exports = function (str) {
 __webpack_require__(113);
 module.exports = __webpack_require__(114);
 
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$Component) {
+    _inherits(Button, _React$Component);
+
+    function Button(props) {
+        _classCallCheck(this, Button);
+
+        var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+        _this.state = {
+            text: _this.props.text
+        };
+        return _this;
+    }
+
+    _createClass(Button, [{
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                "button",
+                {
+                    type: "button",
+                    className: "topBtn btn waves-effect waves-light",
+                    onClick: function onClick(event) {
+                        return _this2.onClick(event);
+                    }
+                },
+                this.state.text
+            );
+        }
+    }, {
+        key: "onClick",
+        value: function onClick(event) {
+            this.props.mojafunkcja();
+        }
+    }]);
+
+    return Button;
+}(_react2.default.Component);
+
+exports.default = Button;
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _button = __webpack_require__(243);
+
+var _button2 = _interopRequireDefault(_button);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Import components
+
+
+var Menu = function (_React$Component) {
+    _inherits(Menu, _React$Component);
+
+    function Menu() {
+        _classCallCheck(this, Menu);
+
+        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'menuWrapper' },
+                _react2.default.createElement(
+                    'h1',
+                    { className: 'menuTitle' },
+                    'Wybierz',
+                    _react2.default.createElement('i', { className: ' arrowIcon fa fa-arrow-right', 'aria-hidden': 'true' })
+                ),
+                _react2.default.createElement(_button2.default, {
+                    text: 'TOP 10',
+                    mojafunkcja: function mojafunkcja() {
+                        return _this2.handleTop10ButtonClicked();
+                    }
+                }),
+                _react2.default.createElement(_button2.default, {
+                    text: 'TOP 50',
+                    mojafunkcja: function mojafunkcja() {
+                        return _this2.handleTop50ButtonClicked();
+                    }
+                })
+            );
+        }
+    }, {
+        key: 'handleTop10ButtonClicked',
+        value: function handleTop10ButtonClicked() {
+            this.props.callback10();
+        }
+    }, {
+        key: 'handleTop50ButtonClicked',
+        value: function handleTop50ButtonClicked() {
+            this.props.callback50();
+        }
+    }]);
+
+    return Menu;
+}(_react2.default.Component);
+
+exports.default = Menu;
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _rankVerseHeader = __webpack_require__(247);
+
+var _rankVerseHeader2 = _interopRequireDefault(_rankVerseHeader);
+
+var _rankVerse = __webpack_require__(246);
+
+var _rankVerse2 = _interopRequireDefault(_rankVerse);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Import components
+
+
+var Data = function (_React$Component) {
+    _inherits(Data, _React$Component);
+
+    function Data(props) {
+        _classCallCheck(this, Data);
+
+        var _this = _possibleConstructorReturn(this, (Data.__proto__ || Object.getPrototypeOf(Data)).call(this, props));
+
+        _this.state = {
+            vidId: null
+        };
+        return _this;
+    }
+
+    _createClass(Data, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'dataSide' },
+                _react2.default.createElement(
+                    'h1',
+                    { className: 'dataTitle' },
+                    'Sprawd\u017A najbardziej popularne video na YouTube'
+                ),
+                _react2.default.createElement(_rankVerseHeader2.default, null),
+                this.props.items.map(function (item, index) {
+                    return _react2.default.createElement(_rankVerse2.default, {
+                        lp: index + 1,
+                        channelTitle: item.snippet.channelTitle,
+                        title: item.snippet.title,
+                        views: item.statistics.viewCount,
+                        likes: item.statistics.likeCount,
+                        dislikes: item.statistics.dislikeCount,
+                        videoId: item.id,
+                        key: item.id,
+                        mojafunkcja: function mojafunkcja(videoId) {
+                            _this2.playNow(videoId);
+                        }
+                    });
+                }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'videoWrapper' },
+                    _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId })
+                )
+            );
+        }
+    }, {
+        key: 'playNow',
+        value: function playNow(videoId) {
+            this.setState({
+                vidId: videoId
+            });
+        }
+    }]);
+
+    return Data;
+}(_react2.default.Component);
+
+exports.default = Data;
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RankVerse = function (_React$Component) {
+    _inherits(RankVerse, _React$Component);
+
+    function RankVerse(props) {
+        _classCallCheck(this, RankVerse);
+
+        return _possibleConstructorReturn(this, (RankVerse.__proto__ || Object.getPrototypeOf(RankVerse)).call(this, props));
+    }
+
+    _createClass(RankVerse, [{
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "rankVerse" },
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColNumber" },
+                        this.props.lp
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColChannel" },
+                        this.props.channelTitle
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColVideoName" },
+                        this.props.title
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColViews" },
+                        this.props.views
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColLikes" },
+                        this.props.likes
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColDislikes" },
+                        this.props.dislikes
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColPlay" },
+                        _react2.default.createElement(
+                            "button",
+                            {
+                                className: "playBtn waves-effect waves-light btn-large red",
+                                onClick: function onClick(event) {
+                                    return _this2.onClickPlay(event);
+                                }
+                            },
+                            _react2.default.createElement("i", { className: "playIcon fa fa-play", "aria-hidden": "true" })
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: "onClickPlay",
+        value: function onClickPlay() {
+            this.props.mojafunkcja(this.props.videoId);
+        }
+    }]);
+
+    return RankVerse;
+}(_react2.default.Component);
+
+exports.default = RankVerse;
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RankVerseHeader = function (_React$Component) {
+    _inherits(RankVerseHeader, _React$Component);
+
+    function RankVerseHeader(props) {
+        _classCallCheck(this, RankVerseHeader);
+
+        var _this = _possibleConstructorReturn(this, (RankVerseHeader.__proto__ || Object.getPrototypeOf(RankVerseHeader)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(RankVerseHeader, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "rankVerseHeader" },
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColNumber" },
+                        "Lp."
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColChannel" },
+                        "Nazwa kana\u0142u"
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColVideoName" },
+                        "Nazwa video"
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColViews" },
+                        "Wy\u015Bwietlenia"
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColLikes" },
+                        _react2.default.createElement("i", { className: "thumbUp fa fa-thumbs-up", "aria-hidden": "true" })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColDislikes" },
+                        _react2.default.createElement("i", { className: "thumbDown fa fa-thumbs-down", "aria-hidden": "true" })
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement(
+                        "p",
+                        { className: "rankColPlay" },
+                        "Zobacz"
+                    )
+                )
+            );
+        }
+    }]);
+
+    return RankVerseHeader;
+}(_react2.default.Component);
+
+exports.default = RankVerseHeader;
 
 /***/ })
 /******/ ]);
