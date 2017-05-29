@@ -97,6 +97,8 @@ body {
   display: flex;
   align-items: center;
   border: 2px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 1.5rem 0.5rem; }
   .rankVerseHeader p {
     text-align: center; }
