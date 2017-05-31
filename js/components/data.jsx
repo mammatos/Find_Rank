@@ -23,7 +23,8 @@ export default class Data extends React.Component {
     constructor(props) {
         super(props);
         this.state ={
-            vidId: null
+            vidId: null,
+            swithVideo: false
         };
     }
 
@@ -42,12 +43,12 @@ export default class Data extends React.Component {
                             videoId={item.id}
                             key={item.id}
                             mojafunkcja={(videoId) => {this.playNow(videoId)}}
+                            showVideo={(bool) => {this.showNow(bool)}}
                         />
             })}
-            
 
             <Modal
-                isOpen={false}
+                isOpen={this.state.swithVideo}
                 contentLabel="videoPreview"
                 style={videoStyles}
                 >
@@ -61,6 +62,12 @@ export default class Data extends React.Component {
     playNow(videoId){
         this.setState({
             vidId: videoId
+        });
+    }
+
+    showNow(bool){
+        this.setState({
+            swithVideo: true
         });
     }
 

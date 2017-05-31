@@ -39,10 +39,9 @@ export default class Container extends React.Component {
             method: 'GET'
         })
         .done((response) => {
-            // console.log(response);
             this.setState({
                 items: response.items,
-                label: "10"
+                label: "10",
             });
         });
     }
@@ -59,7 +58,6 @@ export default class Container extends React.Component {
             method: 'GET'
         })
         .done((response) => {
-            // console.log(response);
             this.setState({
                 items: response.items,
                 label: "50",

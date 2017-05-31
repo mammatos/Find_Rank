@@ -12,7 +12,7 @@ export default class Button extends React.Component {
     render() {
         return <button 
                     type="button"  
-                    className="topBtn btn waves-effect waves-light"
+                    className="topBtn btn waves-light"
                     onClick={event => this.onClick(event)}
                 >
                     {this.state.text}
@@ -21,6 +21,5 @@ export default class Button extends React.Component {
 
     onClick(event){
         this.props.mojafunkcja();
-
     }
 }

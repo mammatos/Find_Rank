@@ -12688,7 +12688,7 @@ var Button = function (_React$Component) {
                 "button",
                 {
                     type: "button",
-                    className: "topBtn btn waves-effect waves-light",
+                    className: "topBtn btn waves-light",
                     onClick: function onClick(event) {
                         return _this2.onClick(event);
                     }
@@ -12796,7 +12796,6 @@ var Container = function (_React$Component) {
                 },
                 method: 'GET'
             }).done(function (response) {
-                // console.log(response);
                 _this3.setState({
                     items: response.items,
                     label: "10"
@@ -12818,7 +12817,6 @@ var Container = function (_React$Component) {
                 },
                 method: 'GET'
             }).done(function (response) {
-                // console.log(response);
                 _this4.setState({
                     items: response.items,
                     label: "50"
@@ -12894,7 +12892,8 @@ var Data = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Data.__proto__ || Object.getPrototypeOf(Data)).call(this, props));
 
         _this.state = {
-            vidId: null
+            vidId: null,
+            swithVideo: false
         };
         return _this;
     }
@@ -12926,13 +12925,16 @@ var Data = function (_React$Component) {
                         key: item.id,
                         mojafunkcja: function mojafunkcja(videoId) {
                             _this2.playNow(videoId);
+                        },
+                        showVideo: function showVideo(bool) {
+                            _this2.showNow(bool);
                         }
                     });
                 }),
                 _react2.default.createElement(
                     _reactModal2.default,
                     {
-                        isOpen: false,
+                        isOpen: this.state.swithVideo,
                         contentLabel: 'videoPreview',
                         style: videoStyles
                     },
@@ -12949,6 +12951,13 @@ var Data = function (_React$Component) {
         value: function playNow(videoId) {
             this.setState({
                 vidId: videoId
+            });
+        }
+    }, {
+        key: 'showNow',
+        value: function showNow(bool) {
+            this.setState({
+                swithVideo: true
             });
         }
     }]);
@@ -13154,7 +13163,7 @@ var RankVerse = function (_React$Component) {
                         _react2.default.createElement(
                             "button",
                             {
-                                className: "playBtn waves-effect waves-light red",
+                                className: "playBtn waves-light red",
                                 onClick: function onClick(event) {
                                     return _this2.onClickPlay(event);
                                 }
@@ -13169,6 +13178,7 @@ var RankVerse = function (_React$Component) {
         key: "onClickPlay",
         value: function onClickPlay() {
             this.props.mojafunkcja(this.props.videoId);
+            this.props.showVideo();
         }
     }]);
 
