@@ -1,18 +1,35 @@
-$playArrow: #fff;
-$playBtn: #E01A27;
+
 
 .ReactModal__Body--open {
     overflow: hidden;
 }
 
 .dataSide {
-    margin-right: -3rem;
 
-}
+    .rankColNumber {
+        width: 4rem;
+    }
 
-.dataTitle {
-    font-size: 2.5rem;
-    padding-bottom: 3rem;
+    .rankColChannel {
+        width: 12rem;
+    }
+
+    .rankColVideoName {
+        width: 11rem;
+    }
+
+    .rankColViews {
+        width: 8rem;
+    }
+
+    .rankColLikes,
+    .rankColDislikes {
+        width: 5rem;
+    }
+
+    .rankColPlay {
+        width: 6rem;
+    }
 }
 
 .dataDescription {
@@ -20,15 +37,15 @@ $playBtn: #E01A27;
 }
 
 .rankVerseHeader {
-    font-weight: bold;
-    font-size: 1.3rem;
+    font-weight: 700;
+    font-size: 1.1rem;
     display: flex;
-    // justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+    border: 1px solid $dataView;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    padding: 1.5rem 0.5rem;
+    padding: 1.3rem 0.5rem;
+    color: $dataView; 
 
     p {
         text-align: center;
@@ -40,22 +57,36 @@ $playBtn: #E01A27;
 
     .thumbUp {
         font-size: 1.5rem;
+        color: #66CC66;
     }
     
     .thumbDown {
         font-size: 1.5rem;
+        color: #FA6B6B;
     }
 } 
 
 .rankVerse {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid $dataView;
     padding: 0.5rem;
+    height: 5rem;
+
+    &[class^="rankVerse"]:nth-of-type(even) {
+        background-color: #F0F0F0;
+    }
+
+    &[class^="rankVerse"]:last-of-type {
+        margin-bottom: 3rem;
+    }
 
     p {
         text-align: center;
+    }
+
+    .rankColVideoName {
+        font-size: 0.9rem;
     }
 
     .rankCell {
@@ -64,7 +95,9 @@ $playBtn: #E01A27;
     }
 
     .playBtn {
-        border-radius: 15px;
+        border-radius: 10px;
+        width: 3rem;
+        height: 2rem;
         color: $playBtn;
     }
 
@@ -91,28 +124,5 @@ $playBtn: #E01A27;
     // left: 1rem;
 }
 
-.rankColNumber {
-    width: 4rem;
-}
 
-.rankColChannel {
-    width: 12rem;
-}
-
-.rankColVideoName {
-    width: 11rem;
-}
-
-.rankColViews {
-    width: 8rem;
-}
-
-.rankColLikes,
-.rankColDislikes {
-    width: 5rem;
-}
-
-.rankColPlay {
-    width: 6rem;
-}
 

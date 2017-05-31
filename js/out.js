@@ -12799,7 +12799,7 @@ var Container = function (_React$Component) {
                 // console.log(response);
                 _this3.setState({
                     items: response.items,
-                    label: "top 10"
+                    label: "10"
                 });
             });
         }
@@ -12821,7 +12821,7 @@ var Container = function (_React$Component) {
                 // console.log(response);
                 _this4.setState({
                     items: response.items,
-                    label: "top 50"
+                    label: "50"
                 });
             });
         }
@@ -12909,8 +12909,9 @@ var Data = function (_React$Component) {
                 { className: 'dataSide' },
                 _react2.default.createElement(
                     'h1',
-                    { className: 'dataTitle' },
-                    'Sprawd\u017A najbardziej popularne video na YouTube'
+                    { className: 'dataDescription' },
+                    'TOP ',
+                    this.props.label
                 ),
                 _react2.default.createElement(_rankVerseHeader2.default, null),
                 this.props.items.map(function (item, index) {
@@ -13008,6 +13009,11 @@ var Menu = function (_React$Component) {
                 { className: 'menuWrapper' },
                 _react2.default.createElement(
                     'h1',
+                    { className: 'menuInfo' },
+                    'Zobacz najpopularniejsze video na YouTube'
+                ),
+                _react2.default.createElement(
+                    'h2',
                     { className: 'menuTitle' },
                     'Wybierz',
                     _react2.default.createElement('i', { className: ' arrowIcon fa fa-arrow-right', 'aria-hidden': 'true' })
@@ -13148,7 +13154,7 @@ var RankVerse = function (_React$Component) {
                         _react2.default.createElement(
                             "button",
                             {
-                                className: "playBtn waves-effect waves-light btn-large red",
+                                className: "playBtn waves-effect waves-light red",
                                 onClick: function onClick(event) {
                                     return _this2.onClickPlay(event);
                                 }

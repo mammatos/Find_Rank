@@ -6,9 +6,10 @@ import Button from './button.jsx';
 export default class Menu extends React.Component {
     render() {
         return <div className="menuWrapper">
-            <h1 className="menuTitle">Wybierz
+            <h1 className="menuInfo">Zobacz najpopularniejsze video na YouTube</h1>
+            <h2 className="menuTitle">Wybierz
                 <i className=" arrowIcon fa fa-arrow-right" aria-hidden="true"></i>
-            </h1>
+            </h2>
             <Button
                 text="TOP 10"
                 mojafunkcja={() => this.handleTop10ButtonClicked()}

@@ -28,7 +28,7 @@ export default class RankVerse extends React.Component {
             <div>
                 <p className="rankColPlay">
                     <button 
-                        className="playBtn waves-effect waves-light btn-large red"
+                        className="playBtn waves-effect waves-light red"
                         onClick={event => this.onClickPlay(event)}
                     >
                         <i className="playIcon fa fa-play" aria-hidden="true"></i>

@@ -42,7 +42,7 @@ export default class Container extends React.Component {
             // console.log(response);
             this.setState({
                 items: response.items,
-                label: "top 10"
+                label: "10"
             });
         });
     }
@@ -62,7 +62,7 @@ export default class Container extends React.Component {
             // console.log(response);
             this.setState({
                 items: response.items,
-                label: "top 50",
+                label: "50",
             });
         });
     }

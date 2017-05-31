@@ -29,8 +29,7 @@ export default class Data extends React.Component {
 
     render() {
         return <div className="dataSide">
-            <h1 className="dataTitle">Sprawdź najbardziej popularne video na YouTube</h1>
-            {/*<h2 className="dataDescription">{this.props.label}</h2>*/}
+            <h1 className="dataDescription">TOP {this.props.label}</h1>
             <RankVerseHeader/>
             {this.props.items.map((item, index) => {
                 return <RankVerse 
