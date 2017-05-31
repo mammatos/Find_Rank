@@ -4,9 +4,9 @@ $topBtnFocus: #0b415e;
 
 .menuTitle {
     font-size: 1.7rem;
-    position: relative;
-    top: 4rem;
-    left: 26.3rem;
+    // position: relative;
+    // top: 4rem;
+    // left: 26.3rem;
 }
 
 .arrowIcon {
@@ -18,17 +18,17 @@ button.topBtn {
     background-color: $topBtn;
 }
 
-.menuWrapper button:first-of-type {
-    position: relative;
-    top: 0.3rem;
-    left: 36rem;
-}
+// .menuWrapper button:first-of-type {
+//     position: relative;
+//     top: 0.3rem;
+//     left: 36rem;
+// }
 
-.menuWrapper button:nth-of-type(2) {
-    position: relative;
-    top: 0.3rem;
-    left: 38rem;
-}
+// .menuWrapper button:nth-of-type(2) {
+//     position: relative;
+//     top: 0.3rem;
+//     left: 38rem;
+// }
 
 button.topBtn:hover {
     background-color: $topBtnLighten;

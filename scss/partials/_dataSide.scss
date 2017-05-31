@@ -1,6 +1,10 @@
 $playArrow: #fff;
 $playBtn: #E01A27;
 
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
 .dataSide {
     margin-right: -3rem;
 
@@ -80,13 +84,11 @@ $playBtn: #E01A27;
 }
 
 .videoFrame {
-    // width: 370px;
-    // height: 230px;
-    width: 440px;
-    height: 250px;
-    position: absolute;
-    top: 9.6rem;
-    left: 1rem;
+    width: 640px;
+    height: 360px;
+    // position: absolute;
+    // top: 9.6rem;
+    // left: 1rem;
 }
 
 .rankColNumber {

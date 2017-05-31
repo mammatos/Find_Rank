@@ -46,10 +46,7 @@ table {
   border-spacing: 0; }
 
 .menuTitle {
-  font-size: 1.7rem;
-  position: relative;
-  top: 4rem;
-  left: 26.3rem; }
+  font-size: 1.7rem; }
 
 .arrowIcon {
   margin-left: 0.8rem;
@@ -57,16 +54,6 @@ table {
 
 button.topBtn {
   background-color: #359ED6; }
-
-.menuWrapper button:first-of-type {
-  position: relative;
-  top: 0.3rem;
-  left: 36rem; }
-
-.menuWrapper button:nth-of-type(2) {
-  position: relative;
-  top: 0.3rem;
-  left: 38rem; }
 
 button.topBtn:hover {
   background-color: #4cacdf; }
@@ -80,6 +67,9 @@ body {
 .wrapperApp {
   display: flex;
   justify-content: space-around; }
+
+.ReactModal__Body--open {
+  overflow: hidden; }
 
 .dataSide {
   margin-right: -3rem; }
@@ -126,11 +116,8 @@ body {
     color: #fff; }
 
 .videoFrame {
-  width: 440px;
-  height: 250px;
-  position: absolute;
-  top: 9.6rem;
-  left: 1rem; }
+  width: 640px;
+  height: 360px; }
 
 .rankColNumber {
   width: 4rem; }
