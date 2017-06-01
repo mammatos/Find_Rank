@@ -150,3 +150,11 @@ body {
 .videoFrame {
   width: 640px;
   height: 360px; }
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 3%; }
+  .btn-close:focus {
+    background-color: transparent; }

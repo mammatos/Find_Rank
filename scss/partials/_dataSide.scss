@@ -107,22 +107,19 @@
 
 }
 
-.videoWrapper {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-}
-
 .videoFrame {
     width: 640px;
     height: 360px;
-    // position: absolute;
-    // top: 9.6rem;
-    // left: 1rem;
 }
 
+.btn-close {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 3%;
 
+    &:focus {
+        background-color: transparent;
+    }
+}
 

@@ -13,7 +13,7 @@ const videoStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '200px 400px',
+    padding: '3rem',
     
   }
 };
@@ -52,9 +52,10 @@ export default class Data extends React.Component {
                 contentLabel="videoPreview"
                 style={videoStyles}
                 >
-                <div className="videoWrapper">
-                    <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
-                </div>
+                <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
+                <button className="btn-close">
+                    <i className="fa fa-times fa-2x" aria-hidden="true"></i>
+                </button>
             </Modal>
         </div>
     }
