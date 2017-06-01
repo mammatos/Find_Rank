@@ -53,7 +53,10 @@ export default class Data extends React.Component {
                 style={videoStyles}
                 >
                 <iframe className="videoFrame" src={"http://youtube.com/embed/" + this.state.vidId}></iframe>
-                <button className="btn-close">
+                <button 
+                    className="btn-close"
+                    onClick={() => this.closeVideo()}
+                >
                     <i className="fa fa-times fa-2x" aria-hidden="true"></i>
                 </button>
             </Modal>
@@ -69,6 +72,12 @@ export default class Data extends React.Component {
     showNow(bool){
         this.setState({
             swithVideo: true
+        });
+    }
+
+    closeVideo(){
+        this.setState({
+            swithVideo: false
         });
     }
 

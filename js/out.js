@@ -13650,7 +13650,12 @@ var Data = function (_React$Component) {
                     _react2.default.createElement('iframe', { className: 'videoFrame', src: "http://youtube.com/embed/" + this.state.vidId }),
                     _react2.default.createElement(
                         'button',
-                        { className: 'btn-close' },
+                        {
+                            className: 'btn-close',
+                            onClick: function onClick() {
+                                return _this2.closeVideo();
+                            }
+                        },
                         _react2.default.createElement('i', { className: 'fa fa-times fa-2x', 'aria-hidden': 'true' })
                     )
                 )
@@ -13668,6 +13673,13 @@ var Data = function (_React$Component) {
         value: function showNow(bool) {
             this.setState({
                 swithVideo: true
+            });
+        }
+    }, {
+        key: 'closeVideo',
+        value: function closeVideo() {
+            this.setState({
+                swithVideo: false
             });
         }
     }]);
